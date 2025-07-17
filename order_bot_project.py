@@ -42,7 +42,27 @@
 
 # --------------------------------------------
 
+# Menu with prices
 
+menu = {
+    "drinks": {
+        "Boba": 4.50,
+        "Soda": 2.00,
+        "Iced Tea": 3.25
+    },
+    "meals": {
+        "Burger": 8.99,
+        "Ramen": 12.50,
+        "Salad": 7.25
+    },
+    "desserts": {
+        "Mochi": 3.75,
+        "Ice Cream": 4.25,
+        "Cake": 5.50
+    }
+}
+tax = 1.08875
+#tip = input("How much do you want to tip: ")
 
 # -------------------------------------------- 
 
@@ -54,9 +74,10 @@
 
 # --------------------------------------------
 
-
-
-
+for category, items in menu.items():
+    print(f"\n{category.title()}:")
+    for item, price in items.items():
+        print(f"{item}: ${price:.2f}")
 
 
 # -------------------------------------------- 
@@ -72,7 +93,11 @@
 
 # --------------------------------------------
 
+foodChoices = input("Choose the foods you want. Input the drink first, then the meal, then the dessert. No spaces but with a comma between each letter: ")
+foodList = list(foodChoices.split(','))
 
+def orderFood():
+    print(menu["drinks"[foodList[0]]]) 
 
 
 
