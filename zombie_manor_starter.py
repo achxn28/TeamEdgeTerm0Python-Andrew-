@@ -25,7 +25,7 @@ player = Player()
 kitchen = Room()
 kitchen.name = "Kitchen"
 kitchen.description = "The kitchen is a really nice one! It has all the stuff you need to cook a healthy meal...of zombie parts! on the table there is a red pill."
-kitchen.objects =["potion", "sandwich", "knife"]
+kitchen.objects =["potion", "sandwich", "knife", "red pill"]
 kitchen.paths=["Living Room" , "Bathroom" , "Backyard" ]
 
 bathroom = Room() 
@@ -34,10 +34,63 @@ bathroom.description ="You are in a Bathroom. Everything is a mess. There is blo
 bathroom.objects = ["towel" , "toothbrush", "toilet Paper", "soap"]
 bathroom.paths =["Kitchen"]
 
+living_room = Room()
+living_room.name = "Living Room"
+living_room.description = "You are in a Living Room. There is a flicking TV on the wall and a decrepit couch in the middle of the room. There is a strange smell coming from the couch."
+living_room.objects = ["remote control", "couch cushion", "old newspaper"]
+living_room.paths = ["Kitchen", "Backyard", "Stairs", "Foyer"]
+
+backyard = Room()
+backyard.name = "Backyard"
+backyard.description = "You are in a Backyard. There is a garden shed and a creepy tree in the corner. The grass is overgrown."
+backyard.objects = ["shovel", "watering can", "hand rake"]
+backyard.paths = ["Kitchen", "Living Room"]
+
+stairs = Room()
+stairs.name = "Stairs"
+stairs.description = "You are at the stairs. They are creaky and old. You can hear something moving upstairs."
+stairs.objects = []
+stairs.paths = ["Living Room", "Upstairs Hallway"]
+
+foyer = Room()
+foyer.name = "Foyer"
+foyer.description = "You are in the foyer. Piles of rotton flesh are stacked up against the walls. The front door is ajar, and you can see the street outside."
+foyer.objects = ["flesh"]
+foyer.paths = ["Living Room"]
+
+upstairs_hallway = Room()
+upstairs_hallway.name = "Upstairs Hallway"
+upstairs_hallway.description = "You are in the upstairs hallway. The walls are covered in blood and there are doors leading to various rooms."
+upstairs_hallway.objects = []
+upstairs_hallway.paths = ["Stairs", "Guest Bedroom", "Master Bedroom", "Master Bathroom"]
+
+guest_bedroom = Room()
+guest_bedroom.name = "Guest Bedroom"
+guest_bedroom.description = "You are in the guest bedroom. The bed is unmade and there are clothes scattered everywhere."
+guest_bedroom.objects = ["pillow", "blanket"]
+guest_bedroom.paths = ["Upstairs Hallway"]
+
+master_bedroom = Room()
+master_bedroom.name = "Master Bedroom"
+master_bedroom.description = "You are in the master bedroom. The bed is large and there is a closet full of clothes. There is a blue pill laying on the table."
+master_bedroom.objects = ["blue pill", "watch", "book"]
+master_bedroom.paths = ["Upstairs Hallway", "Master Bathroom"]
+
+master_bathroom = Room()
+master_bathroom.name = "Master Bathroom"
+master_bathroom.description = "You are in the master bathroom. The bathtub is filled with murky water and there are towels hanging on the rack. A part of the wall looks flipsy. Do you have any brute force weapons?"
+master_bathroom.objects = ["toothpaste", "shampoo", "conditioner"]
+master_bathroom.paths = ["Master Bedroom"]
+
 #add the rooms to the rooms list
 rooms.append(kitchen)
 rooms.append(bathroom)
-
+rooms.append(living_room)
+rooms.append(backyard)
+rooms.append(stairs)
+rooms.append(foyer)
+rooms.append(upstairs_hallway)
+rooms.append(guest_bedroom)
 
 def prompt_user():
   reply = input("What do you want to do?  >>  ")
