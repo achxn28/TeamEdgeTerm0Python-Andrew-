@@ -231,6 +231,9 @@ def check_answer(input):
               elif item_to_use == "shovel" and target == "wall":
                   print("You bash the weak wall open and reveal a hidden tunnel!")
                   current_room.paths.append("Secret Room")
+              elif item_to_use == "shovel" and target == "roof":
+                  print("You break through the roof panel and see a helicopter in the sky! You can escape now!")
+                  print("You win! You escaped Zombie Manor!")
               else:
                   print(f"You used {item_to_use} on {target}, but nothing happened.")
           else:
