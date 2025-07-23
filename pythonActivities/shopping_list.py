@@ -23,6 +23,7 @@ print(welcome_message)
 
 #-->Todo: declare a shopping_list list
 
+shopping_list = []
 
 def prompt_user():
 
@@ -31,16 +32,43 @@ def prompt_user():
     return reply
 
 def check_answer(ans):
-    pass
+    words = ans.lower().split()
 
 
-def add_item():
+    command = words[0]
+    item = " ".join(words[1:])
+
+    if "add" != command and "remove" != command:
+        print("Please enter a valid command like 'add milk' or 'remove eggs'.")
+        return
+
+    if command == "add":
+        add_item(item)
+    elif command == "remove":
+        remove_item(item)
+    else:
+        print("Unknown command. Please use 'add' or 'remove' followed by the item name.")
+        return
+
+
+
+def add_item(item):
 #this function can take in a string and store it in an array
-    pass
+    shopping_list.append(item)
+    print(f"'{item}' has been added to your shopping list.")
+    print("Current list:", shopping_list)
 
 
-def remove_item():
-    pass
+
+def remove_item(item):
+#this function can take in a string and remove it from an array
+    if item in shopping_list:
+        shopping_list.remove(item)
+        print(f"'{item}' has been removed from your shopping list.")
+        print("Current list:", shopping_list)
+    else:
+        print(f"'{item}' is not in your shopping list.")
+
 
 while active:
 
